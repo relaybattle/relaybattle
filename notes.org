@@ -1,0 +1,45 @@
+* Dependencies
+** Akka.NET
+** Suave
+** Elmish
+** Fable
+
+* Client
+** client.proj
+** App.fs
+** Router.fs
+** State.fs
+** Types.fs
+** webpack.config.js
+** Channel/
+*** State.fs
+*** Types.fs
+*** View.fs
+** Chat/
+*** State.fs
+*** Types.fs
+** Info/
+*** View.fs
+** NavMenu/
+*** View.fs
+** UserAvatar/
+*** View.fs
+
+* Server
+** server.proj
+** ChannelFlow.fs
+** ChatServer.fs
+** ChatUser.fs
+** Diag.fs
+** FlowImpl.fs
+** Json.fs
+** Logon.fs
+** Prelude.fs
+** Program.fs
+** ProtocolConv.fs
+** SocketFlow.fs
+** UserSession.fs
+** UserSessionFlow.fs
+** UserStore.fs
+** app.fs
+
