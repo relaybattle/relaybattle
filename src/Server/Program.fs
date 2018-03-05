@@ -33,7 +33,7 @@ let main argv =
 
         //default bind to 127.0.0.1:8083
         let defaultArgs = {
-            IP = System.Net.IPAddress.Loopback; Port = 8083us
+            IP = System.Net.IPAddress.Parse("0.0.0.0"); Port = 8083us
             ClientPath = ".." </> "Client" </> "public"
             }
 
