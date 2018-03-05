@@ -1,8 +1,14 @@
 * Dependencies
-** Akka.NET
-** Suave
-** Elmish
-** Fable
+** [[https://github.com/akkadotnet/akka.net][Akka.NET]]
+** [[https://github.com/Horusiath/Akkling][Akkling]]
+** [[https://github.com/SuaveIO/suave][Suave]]
+** [[https://github.com/fable-elmish/elmish][Elmish]]
+** [[https://github.com/fable-compiler/Fable][Fable]]
+
+* Needs refactoring:
+
+- [ ] src/Server/app.fs:root
+  Huge function which does the routing.
 
 * Client
 ** client.proj
@@ -27,19 +33,26 @@
 
 * Server
 ** server.proj
-** ChannelFlow.fs
-** ChatServer.fs
-** ChatUser.fs
-** Diag.fs
-** FlowImpl.fs
-** Json.fs
-** Logon.fs
 ** Prelude.fs
-** Program.fs
+** FlowImpl.fs
+** ChannelFlow.fs
+** ChatUser.fs
+** ChatServer.fs
 ** ProtocolConv.fs
-** SocketFlow.fs
-** UserSession.fs
-** UserSessionFlow.fs
 ** UserStore.fs
-** app.fs
-
+** UserSession.fs
+** Diag.fs
+** Json.fs
+** SocketFlow.fs
+** UserSessionFlow.fs
+** [[file:src/Server/Logon.fs::module%20Logon][Logon.fs]]
+- contains DSL templates of the login screen
+** [[file:src/Server/app.fs::module%20App][app.fs]]
+- contains root router
+  - huge function which handles routing
+** [[file:src/Server/Program.fs::open%20System.IO][Program.fs]]
+- contains [[file:src/Server/Program.fs::let%20main%20argv%20=][entrypoint]]
+  - [[file:src/Server/Program.fs::let%20rec%20parseArgs%20b%20args%20=][parses args]]
+  - sets up [[file:src/Server/Program.fs::let%20logger%20=%20Logging.Targets.create%20Logging.Verbose%20%5B|%20"Suave"%20|%5D][logging]]
+  - creates [[file:src/Server/Program.fs::let%20config%20=][runtime config]]
+  - asnychrnously [[file:src/Server/Program.fs::Async.Start%20(application,%20cts.Token)][starts the webserver]]
